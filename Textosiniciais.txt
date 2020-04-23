@@ -1,0 +1,7 @@
+1- "Estou com fome!"
+2- "Estou com sede!"
+3- "Preciso ir ao Banheiro!"
+4- "Estou com dor!"
+5- "Quero ver TV"
+6- "Preciso falar com meu irmão"
+7- "Irei dormir"
