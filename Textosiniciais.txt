@@ -11,4 +11,4 @@
 11- "Não"
 12- "Obrigado"
 13- "Não entendi"
-14- "Hora dos remédios"
+14- "Quero tomar um ar!"
