@@ -12,4 +12,3 @@
 12- "Obrigado"
 13- "Não entendi"
 14- "Quero tomar um ar!"
-15 - exemplo texto
