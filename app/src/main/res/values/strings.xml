@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Projeto1</string>
+    <string-array name="frases">
+        <item> Estou com sede!</item>
+        <item> Estou com fome!</item>
+        <item> Estou com dor!</item>
+        <item> Preciso ir ao banheiro!</item>
+    </string-array>
 </resources>
