@@ -18,8 +18,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView textView = findViewById(R.id.text);
-
         Spinner dropdownSpinner = findViewById(R.id.dropdown);
         dropdownSpinner.setOnItemSelectedListener(this);
 
@@ -36,6 +34,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+        TextView textView = findViewById(R.id.text);
+        String content =parent.toString();
+        textView.setText(content);
 
     }
 
