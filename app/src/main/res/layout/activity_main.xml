@@ -10,7 +10,7 @@
 
 
 
-    <Dropdown android:id="@+id/dropdown"
+    <Spinner android:id="@+id/dropdown"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
