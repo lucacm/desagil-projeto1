@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import java.text.BreakIterator;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
