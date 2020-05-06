@@ -74,9 +74,9 @@ public class MorseActivity extends AppCompatActivity {
         // Ação do botão morse para dar espaço
         delspaceButton.setOnLongClickListener((view) -> {
             if (morse == null){
-                morse = " ";
+                morse = "/";
             } else {
-                morse = morse + " ";
+                morse = morse + "/";
             }
             textMessage.setText(morse);
             return true;
@@ -95,6 +95,8 @@ public class MorseActivity extends AppCompatActivity {
 
             String phone = textPhone.getText().toString();
 
+            // mudar funcao de enviar SMS para funcao de mostrar a traducao no app
+            // melhorar logica abaixo
             if (morse != null) {
 
                 String Mchar = String.valueOf(translator.morseToChar(morse)); // Convert char to str
