@@ -5,11 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.SmsManager;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class SMSActivity extends AppCompatActivity {
+public class SMSActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     // Método de conveniência para mostrar uma bolha de texto.
     private void showToast(String text) {
@@ -30,6 +35,19 @@ public class SMSActivity extends AppCompatActivity {
         EditText textMessage = findViewById(R.id.text_message);
         EditText textPhone = findViewById(R.id.text_phone);
         Button buttonSend = findViewById(R.id.button_send);
+
+        TextView text = findViewById(R.id.text);
+        Button buttonExample = findViewById(R.id.button_example);
+
+        Spinner dropdownSpinner = findViewById(R.id.dropdown);
+        dropdownSpinner.setOnItemSelectedListener(this);
+
+        ArrayAdapter<CharSequence> adapterDropdown = ArrayAdapter.createFromResource(this,
+                R.array.frases, android.R.layout.simple_spinner_item);
+
+        adapterDropdown.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        dropdownSpinner.setAdapter(adapterDropdown);
 
         buttonSend.setOnClickListener((view) -> {
             String message = textMessage.getText().toString();
@@ -58,5 +76,17 @@ public class SMSActivity extends AppCompatActivity {
             // ficar apertando o botão várias vezes.
             textPhone.setText("");
         });
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        TextView textView = findViewById(R.id.text);
+//        String content = parent.toString();
+//        textView.setText(content);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 }
