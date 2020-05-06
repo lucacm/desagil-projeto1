@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Esta constante é um código que identifica o pedido de "mandar sms".
     private static final int REQUEST_SEND_SMS = 0;
+    private static final int REQUEST_MORSE_SMS = 0;
 
 
     // Método de conveniência para iniciar a SMSActivity.
@@ -33,6 +34,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // Método de conveniência para iniciar a MorseActivity.
+    private void startMorseActivity() {
+
+        // Constrói uma Intent que corresponde ao pedido de "iniciar Activity".
+        Intent intent = new Intent(this, MorseActivity.class);
+
+        // Inicia a Activity especificada na Intent.
+        startActivity(intent);
+    }
+
 
 
 
@@ -40,23 +51,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        TextView text = findViewById(R.id.text);
         Button buttonExample = findViewById(R.id.button_example);
+        Button buttonMorse = findViewById(R.id.button_morse);
 
-
-//        Spinner dropdownSpinner = findViewById(R.id.dropdown);
-//        dropdownSpinner.setOnItemSelectedListener(this);
-//
-//        ArrayAdapter<CharSequence> adapterDropdown = ArrayAdapter.createFromResource(this,
-//                R.array.frases, android.R.layout.simple_spinner_item);
-//
-//        adapterDropdown.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//
-//        dropdownSpinner.setAdapter(adapterDropdown);
 
         buttonExample.setOnClickListener((view) -> {
-//            String Message = dropdownSpinner.getSelectedItem().toString();
-//            text.setText(Message);
+
             // Verifica se o aplicativo tem a permissão desejada.
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
 
@@ -74,6 +74,28 @@ public class MainActivity extends AppCompatActivity {
                 };
 
                 ActivityCompat.requestPermissions(this, permissions, REQUEST_SEND_SMS);
+            }
+       });
+
+        buttonMorse.setOnClickListener((view) -> {
+
+            // Verifica se o aplicativo tem a permissão desejada.
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
+
+                // Se tem, podemos iniciar a SMSActivity direto.
+                startMorseActivity();
+            } else {
+
+                // Senão, precisamos pedir essa permissão.
+
+                // Cria um vetor de permissões a pedir. Como queremos
+                // uma só, parece um pouco feio, mas é bem conveniente
+                // quando queremos pedir várias permissões de uma vez.
+                String[] permissions = new String[]{
+                        Manifest.permission.SEND_SMS,
+                };
+
+                ActivityCompat.requestPermissions(this, permissions, REQUEST_MORSE_SMS);
             }
        });
 
@@ -105,6 +127,12 @@ public class MainActivity extends AppCompatActivity {
 
             // Se foi positiva, podemos iniciar a SMSActivity.
             startSMSActivity();
+        }
+
+        if (requestCode == REQUEST_MORSE_SMS && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+            // Se foi positiva, podemos iniciar a SMSActivity.
+            startMorseActivity();
         }
     }
 
