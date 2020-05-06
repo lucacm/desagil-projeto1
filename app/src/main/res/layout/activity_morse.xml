@@ -32,32 +32,50 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:gravity="top"
         android:hint="Mensagem"
-        android:minLines="5" />
+        android:minLines="5"
+        android:textSize="30sp"/>
 
     <!--    <TextView-->
-<!--        android:id="@+id/text"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:text=""-->
-<!--        android:textSize="28sp" />-->
+    <!--        android:id="@+id/text"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_centerHorizontal="true"-->
+    <!--        android:text=""-->
+    <!--        android:textSize="28sp" />-->
 
     <EditText
         android:id="@+id/text_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/dropdown"
-        android:layout_marginBottom="124dp"
+        android:layout_below="@id/text_message"
         android:hint="Telefone"
         android:inputType="phone" />
 
-    <Spinner
-        android:id="@+id/dropdown"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_centerInParent="true"/>
+
+    <Button
+        android:id="@+id/push_button"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/round_button"
+        android:padding="15dp"
+        android:text="morse code"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="30dp"/>
+
+    <Button
+        android:id="@+id/delspace_button"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/round_button"
+        android:padding="15dp"
+        android:text="del/space"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="30dp"/>
 
     <Button
         android:id="@+id/button_send"
@@ -65,5 +83,6 @@
         android:layout_height="99dp"
         android:text="Enviar"
         android:layout_alignParentBottom="true"/>
+
 
 </RelativeLayout>
