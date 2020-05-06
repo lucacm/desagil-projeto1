@@ -13,6 +13,9 @@ import android.widget.Toast;
 
 public class MorseActivity extends AppCompatActivity {
     private String morse;
+    private Translator translator;
+    private String decoded;
+
 
     // Método de conveniência para mostrar uma bolha de texto.
     private void showToast(String text) {
@@ -29,6 +32,7 @@ public class MorseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_morse);
+        Translator translator = new Translator();
 
         TextView textMessage = findViewById(R.id.text_message);
         EditText textPhone = findViewById(R.id.text_phone);
@@ -91,6 +95,18 @@ public class MorseActivity extends AppCompatActivity {
 
             String phone = textPhone.getText().toString();
 
+            if (morse != null) {
+
+                String Mchar = String.valueOf(translator.morseToChar(morse)); // Convert char to str
+                if (decoded == null) {
+                    decoded = Mchar;
+                } else {
+                    decoded += Mchar;
+                }
+
+                }
+
+
             // Esta verificação do número de telefone é bem
             // rígida, pois exige até mesmo o código do país.
             if (!PhoneNumberUtils.isGlobalPhoneNumber(phone)) {
@@ -102,7 +118,7 @@ public class MorseActivity extends AppCompatActivity {
             // não estou verificando se foi mesmo enviada,
             // mas é possível fazer uma versão que verifica.
             SmsManager manager = SmsManager.getDefault();
-            manager.sendTextMessage(phone, null, morse, null, null); // precisa arrumar o message
+            manager.sendTextMessage(phone, null, decoded, null, null); // precisa arrumar o message
 
             // Limpar o campo para nenhum engraçadinho
             // ficar apertando o botão várias vezes.
