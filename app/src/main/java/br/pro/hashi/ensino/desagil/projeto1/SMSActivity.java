@@ -32,12 +32,11 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sms);
 
-        EditText textMessage = findViewById(R.id.text_message);
+        TextView textMessage = findViewById(R.id.text_message);
         EditText textPhone = findViewById(R.id.text_phone);
         Button buttonSend = findViewById(R.id.button_send);
 
-        TextView text = findViewById(R.id.text);
-        Button buttonExample = findViewById(R.id.button_example);
+//        TextView text = findViewById(R.id.text);
 
         Spinner dropdownSpinner = findViewById(R.id.dropdown);
         dropdownSpinner.setOnItemSelectedListener(this);
@@ -50,12 +49,13 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
         dropdownSpinner.setAdapter(adapterDropdown);
 
         buttonSend.setOnClickListener((view) -> {
-            String message = textMessage.getText().toString();
+            String message = dropdownSpinner.getSelectedItem().toString();
+            textMessage.setText(message);
 
-            if (message.isEmpty()) {
-                showToast("Mensagem inválida!");
-                return;
-            }
+//            if (textMessage.isEmpty()) {
+//                showToast("Mensagem inválida!");
+//                return;
+//            }
 
             String phone = textPhone.getText().toString();
 
