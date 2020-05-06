@@ -17,7 +17,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
 
     // Esta constante é um código que identifica o pedido de "mandar sms".
     private static final int REQUEST_SEND_SMS = 0;
@@ -36,30 +36,27 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TextView text = findViewById(R.id.text);
+//        TextView text = findViewById(R.id.text);
         Button buttonExample = findViewById(R.id.button_example);
 
 
-        Spinner dropdownSpinner = findViewById(R.id.dropdown);
-        dropdownSpinner.setOnItemSelectedListener(this);
-
-        ArrayAdapter<CharSequence> adapterDropdown = ArrayAdapter.createFromResource(this,
-                R.array.frases, android.R.layout.simple_spinner_item);
-
-        adapterDropdown.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        dropdownSpinner.setAdapter(adapterDropdown);
+//        Spinner dropdownSpinner = findViewById(R.id.dropdown);
+//        dropdownSpinner.setOnItemSelectedListener(this);
+//
+//        ArrayAdapter<CharSequence> adapterDropdown = ArrayAdapter.createFromResource(this,
+//                R.array.frases, android.R.layout.simple_spinner_item);
+//
+//        adapterDropdown.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//
+//        dropdownSpinner.setAdapter(adapterDropdown);
 
         buttonExample.setOnClickListener((view) -> {
-            String Message = dropdownSpinner.getSelectedItem().toString();
-            text.setText(Message);
+//            String Message = dropdownSpinner.getSelectedItem().toString();
+//            text.setText(Message);
             // Verifica se o aplicativo tem a permissão desejada.
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
 
@@ -84,18 +81,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-        TextView textView = findViewById(R.id.text);
-//        String content =parent.toString();
-//        textView.setText(content);
-
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
+//    @Override
+//    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+//        TextView textView = findViewById(R.id.text);
+////        String content =parent.toString();
+////        textView.setText(content);
+//
+//    }
+//
+//    @Override
+//    public void onNothingSelected(AdapterView<?> parent) {
+//
+//    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
