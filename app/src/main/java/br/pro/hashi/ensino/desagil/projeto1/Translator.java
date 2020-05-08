@@ -16,6 +16,7 @@ public class Translator {
     // Você deve mudar o recheio do construtor,
     // de acordo com os requisitos do projeto.
     public Translator() {
+
     }
 
 
