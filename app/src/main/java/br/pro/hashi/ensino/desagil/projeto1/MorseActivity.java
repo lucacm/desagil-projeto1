@@ -35,11 +35,19 @@ public class MorseActivity extends AppCompatActivity {
         Translator translator = new Translator();
 
         TextView textMessage = findViewById(R.id.text_message);
+
+        TextView textTranslate = findViewById(R.id.text_translate);
+
         EditText textPhone = findViewById(R.id.text_phone);
         Button buttonSend = findViewById(R.id.button_send);
         Button morseButton = findViewById(R.id.push_button);
         Button delspaceButton = findViewById(R.id.delspace_button);
 
+        Button translateButton = findViewById(R.id.button_translate);
+
+        translateButton.setOnClickListener((view) -> {
+
+        });
         // Ação do botão morse para escrever pontos
         morseButton.setOnClickListener((view) -> {
             if (morse == null){
@@ -106,7 +114,7 @@ public class MorseActivity extends AppCompatActivity {
                     decoded += Mchar;
                 }
 
-                }
+            }
 
 
             // Esta verificação do número de telefone é bem
@@ -126,6 +134,11 @@ public class MorseActivity extends AppCompatActivity {
             // ficar apertando o botão várias vezes.
             textPhone.setText("");
         });
+
+
     }
 
+
+
 }
+
