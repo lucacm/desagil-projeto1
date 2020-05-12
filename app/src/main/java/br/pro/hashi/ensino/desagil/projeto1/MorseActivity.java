@@ -47,10 +47,24 @@ public class MorseActivity extends AppCompatActivity {
 
         translateButton.setOnClickListener((view) -> {
 
+            if (morse != null) {
+
+                String Mchar = String.valueOf(translator.morseToChar(morse)); // Convert char to str
+                if (decoded == null) {
+                    decoded = Mchar;
+                } else {
+                    decoded += Mchar;
+                }
+
+            }
+            textTranslate.setText(decoded);
+            morse = null;
+            textMessage.setText(morse);
+
         });
         // Ação do botão morse para escrever pontos
         morseButton.setOnClickListener((view) -> {
-            if (morse == null){
+            if (morse == null) {
                 morse = ".";
             } else {
                 morse = morse + ".";
@@ -60,7 +74,7 @@ public class MorseActivity extends AppCompatActivity {
 
         // Ação do botão morse para escrever traços
         morseButton.setOnLongClickListener((view) -> {
-            if (morse == null){
+            if (morse == null) {
                 morse = "-";
             } else {
                 morse = morse + "-";
@@ -73,15 +87,15 @@ public class MorseActivity extends AppCompatActivity {
         delspaceButton.setOnClickListener((view) -> {
             char lastChar = morse.charAt(morse.length() - 1);
             // está com bug
-            if (morse != null){
-                morse = morse.substring(0, morse.length() -1);
+            if (morse != null) {
+                morse = morse.substring(0, morse.length() - 1);
             }
             textMessage.setText(morse);
         });
 
         // Ação do botão morse para dar espaço
         delspaceButton.setOnLongClickListener((view) -> {
-            if (morse == null){
+            if (morse == null) {
                 morse = "/";
             } else {
                 morse = morse + "/";
@@ -91,31 +105,12 @@ public class MorseActivity extends AppCompatActivity {
         });
 
 
-
         buttonSend.setOnClickListener((view) -> {
-//            String message = .getSelectedItem().toString();
-//            textMessage.setText(message);
-
-//            if (textMessage.isEmpty()) {
-//                showToast("Mensagem inválida!");
-//                return;
-//            }
-
             String phone = textPhone.getText().toString();
 
             // mudar funcao de enviar SMS para funcao de mostrar a traducao no app
             // melhorar logica abaixo
-            if (morse != null) {
-
-                String Mchar = String.valueOf(translator.morseToChar(morse)); // Convert char to str
-                if (decoded == null) {
-                    decoded = Mchar;
-                } else {
-                    decoded += Mchar;
-                }
-
-            }
-
+         
 
             // Esta verificação do número de telefone é bem
             // rígida, pois exige até mesmo o código do país.
@@ -138,7 +133,4 @@ public class MorseActivity extends AppCompatActivity {
 
     }
 
-
-
 }
-
