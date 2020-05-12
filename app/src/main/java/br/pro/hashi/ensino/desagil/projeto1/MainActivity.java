@@ -43,6 +43,14 @@ public class MainActivity extends AppCompatActivity {
         // Inicia a Activity especificada na Intent.
         startActivity(intent);
     }
+    private void startDictActivity() {
+
+        // Constrói uma Intent que corresponde ao pedido de "iniciar Activity".
+        Intent intent = new Intent(this, DictActivity.class);
+
+        // Inicia a Activity especificada na Intent.
+        startActivity(intent);
+    }
 
 
 
@@ -53,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button buttonExample = findViewById(R.id.button_example);
         Button buttonMorse = findViewById(R.id.button_morse);
+        Button buttonDict = findViewById(R.id.button_dict);
 
 
         buttonExample.setOnClickListener((view) -> {
@@ -98,6 +107,11 @@ public class MainActivity extends AppCompatActivity {
                 ActivityCompat.requestPermissions(this, permissions, REQUEST_MORSE_SMS);
             }
        });
+
+        buttonDict.setOnClickListener((view) -> {
+            startDictActivity();
+        });
+
 
 
 

@@ -42,45 +42,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_message"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="1dp"
         android:hint="Tradução"
         android:minLines="2"
         android:textSize="30sp" />
-        android:minLines="5"
-        android:textSize="30sp"/>
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/text"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_centerHorizontal="true"-->
-    <!--        android:text=""-->
-    <!--        android:textSize="28sp" />-->
-    >>>>>>> master
 
     <EditText
         android:id="@+id/text_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_translate"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="6dp"
         android:hint="Telefone"
         android:inputType="phone" />
-
-    <Button
-        android:id="@+id/push_button"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:layout_below="@id/text_message"
-        android:hint="Telefone"
-        android:inputType="phone" />
-
 
     <Button
         android:id="@+id/push_button" style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:background="@drawable/round_button"
         android:padding="15dp"
         android:text="morse code"
@@ -92,8 +71,6 @@
         android:id="@+id/delspace_button" style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width ="130dp"
         android:layout_height ="130dp"
-        android:layout_width ="150dp"
-        android:layout_height ="150dp"
         android:background="@drawable/round_button"
         android:padding="15dp"
         android:text="del/space"

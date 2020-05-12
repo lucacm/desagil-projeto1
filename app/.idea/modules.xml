@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../Projeto1.iml" filepath="$PROJECT_DIR$/../Projeto1.iml" group="Projeto1" />
       <module fileurl="file://$PROJECT_DIR$/app.iml" filepath="$PROJECT_DIR$/app.iml" group="Projeto1/app" />
+      <module fileurl="file://$PROJECT_DIR$/../desagil-projeto1-Projeto1.iml" filepath="$PROJECT_DIR$/../desagil-projeto1-Projeto1.iml" group="Projeto1" />
+      <module fileurl="file://$PROJECT_DIR$/desagil-projeto1-app.iml" filepath="$PROJECT_DIR$/desagil-projeto1-app.iml" group="Projeto1/app" />
     </modules>
   </component>
 </project>

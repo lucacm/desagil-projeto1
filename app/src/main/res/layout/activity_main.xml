@@ -24,6 +24,12 @@
 
 
     <Button
+        android:id="@+id/button_dict"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:text="Dict" />
+
+    <Button
         android:id="@+id/button_morse"
         android:layout_width="match_parent"
         android:layout_height="75dp"
