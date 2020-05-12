@@ -298,28 +298,29 @@ public class Translator {
         // Você deve mudar o recheio deste método,
         // de acordo com os requisitos do projeto.
         private String charToMorse(Node node) {
-            Node reference = node;
+
             Node parent;
-            Node rightParent;
-            Node leftParent;
-            String morse = new String();
+              Node rightParent;
+//            Node leftParent;
+           StringBuilder morse = new StringBuilder();
 
-            while (reference.getParent() != null) {
-                parent = reference.getParent();
+            while (node.getParent() != null) {
+                parent = node.getParent();
                 rightParent = parent.getRight();
-                leftParent = parent.getLeft();
+//                leftParent = parent.getLeft();
 
-                if (rightParent.getValue() == reference.getValue()) {
-                    morse += "-";
+                if (rightParent == node) {
+                    morse.append("-");
 
                 } else {
-                    morse += ".";
+                    morse.append(".");
                 }
 
-                reference.setParent(parent);
+                node.setParent(parent);
             }
 
-        return " ";
+        String fraseInvertida = morse.reverse().toString();
+        return fraseInvertida;
         }
 
 
