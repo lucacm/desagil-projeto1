@@ -2,7 +2,6 @@
  * NÃO É PERMITIDO MODIFICAR NADA NESTE ARQUIVO,
  * EXCETO PELO CONSTRUTOR E OS MÉTODOS INDICADOS.
  */
-
 package br.pro.hashi.ensino.desagil.projeto1;
 
 import java.util.HashMap;
@@ -16,6 +15,7 @@ public class Translator {
     // Você deve mudar o recheio do construtor,
     // de acordo com os requisitos do projeto.
     public Translator() {
+
 
         root = new Node(' ');
 
@@ -273,71 +273,65 @@ public class Translator {
         Node n0 = new Node('0');
         b4.setRight(n0);
         n0.setParent(b4);
+    }
 
+        // Você deve mudar o recheio deste método,
+        // de acordo com os requisitos do projeto.
+        public char morseToChar(String code) {
 
->
+            Node nod = root;
 
-    // Você deve mudar o recheio deste método,
-    // de acordo com os requisitos do projeto.
-    public char morseToChar(String code) {
-
-        Node nod = root;
-
-        for (int i = 0; i < code.length(); i++) {
-            if (code.charAt(i) == '.'){
-                nod = nod.getLeft();
+            for (int i = 0; i < code.length(); i++) {
+                if (code.charAt(i) == '.'){
+                    nod = nod.getLeft();
+                }
+                else {
+                    nod = nod.getRight();
+                }
             }
-            else {
-                nod = nod.getRight();
-            }
+
+
+            return nod.getValue();
         }
 
 
-        return nod.getValue();
-    }
+        // Você deve mudar o recheio deste método,
+        // de acordo com os requisitos do projeto.
+        private String charToMorse(Node node) {
+            Node reference = node;
+            Node parent;
+            Node rightParent;
+            Node leftParent;
+            String morse = new String();
 
+            while (reference.getParent() != null) {
+                parent = reference.getParent();
+                rightParent = parent.getRight();
+                leftParent = parent.getLeft();
 
-    // Você deve mudar o recheio deste método,
-    // de acordo com os requisitos do projeto.
-    private String charToMorse(Node node) {
-        Node reference = node;
-        Node parent;
-        Node rightParent;
-        Node leftParent;
-        String morse = new String();
+                if (rightParent.getValue() == reference.getValue()) {
+                    morse += "-";
 
-        while (reference.getParent() != null){
-            parent = reference.getParent();
-            rightParent = parent.getRight();
-            leftParent = parent.getLeft();
+                } else {
+                    morse += ".";
+                }
 
-            if (rightParent.getValue() == reference.getValue()){
-                morse += "-";
-
-            } else {
-                morse += ".";
+                reference.setParent(parent);
             }
 
-            reference.setParent(parent);
+        return " ";
         }
 
-        return morse.re;
+
+        // Este método deve permanecer como está.
+        public String charToMorse(char c) {
+            return charToMorse(map.get(c));
+        }
 
 
-
-
+        // Você deve mudar o recheio deste método,
+        // de acordo com os requisitos do projeto.
+        public LinkedList<String> getCodes() {
+            return new LinkedList<>();
+        }
     }
-
-
-    // Este método deve permanecer como está.
-    public String charToMorse(char c) {
-        return charToMorse(map.get(c));
-    }
-
-
-    // Você deve mudar o recheio deste método,
-    // de acordo com os requisitos do projeto.
-    public LinkedList<String> getCodes() {
-        return new LinkedList<>();
-    }
-}
