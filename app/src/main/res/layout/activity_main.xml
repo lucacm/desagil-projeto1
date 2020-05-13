@@ -8,26 +8,12 @@
     tools:context=".MainActivity">
 
 
-<!--    <Spinner-->
-<!--        android:id="@+id/dropdown"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="65dp"-->
-<!--        android:layout_centerInParent="true" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/text"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text=""-->
-<!--        android:textSize="28sp"-->
-<!--        android:layout_centerHorizontal="true"/>-->
-
-
     <Button
         android:id="@+id/button_dict"
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:text="Dict" />
+        android:text="Dict"
+        android:layout_above="@id/button_morse"/>
 
     <Button
         android:id="@+id/button_morse"

@@ -1,26 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
     android:orientation="vertical"
-    tools:context=".DictActivity">
+    android:gravity="center">
 
 
-
-    <TextView
-        android:id="@+id/text_dict"
+    <ListView
+        android:id="@+id/list_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:hint="Mensagem"
-        android:minLines="2"
-        android:textSize="30sp" />
+        android:layout_height="match_parent"
+        android:entries="@array/letras"/>
 
-    <Button
-        android:id="@+id/button_dict"
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:layout_centerInParent="true"
-        android:text="teste" />
-</RelativeLayout>
+
+
+</LinearLayout>

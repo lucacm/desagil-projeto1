@@ -6,6 +6,7 @@ package br.pro.hashi.ensino.desagil.projeto1;
 
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Queue;
 
 public class Translator {
     private Node root;
@@ -340,58 +341,85 @@ public class Translator {
         map.put('0', n0);
     }
 
-        // Você deve mudar o recheio deste método,
-        // de acordo com os requisitos do projeto.
-        public char morseToChar(String code) {
+    // Você deve mudar o recheio deste método,
+    // de acordo com os requisitos do projeto.
+    public char morseToChar(String code) {
 
-            Node nod = root;
+        Node nod = root;
 
-            for (int i = 0; i < code.length(); i++) {
-                if (code.charAt(i) == '.'){
-                    nod = nod.getLeft();
-                }
-                else {
-                    nod = nod.getRight();
-                }
+        for (int i = 0; i < code.length(); i++) {
+            if (code.charAt(i) == '.') {
+                nod = nod.getLeft();
+            } else {
+                nod = nod.getRight();
             }
-            return nod.getValue();
         }
+        return nod.getValue();
+    }
 
+    // Você deve mudar o recheio deste método,
+    // de acordo com os requisitos do projeto.
+    private String charToMorse(Node node) {
+        Node parent;
+        Node rightParent;
+        StringBuilder morse = new StringBuilder();
 
-        // Você deve mudar o recheio deste método,
-        // de acordo com os requisitos do projeto.
-        private String charToMorse(Node node) {
-            Node parent;
-            Node rightParent;
-           StringBuilder morse = new StringBuilder();
-
-            while (node.getParent() != null) {
-                parent = node.getParent();
-                rightParent = parent.getRight();
-                if (rightParent == node) {
-                    morse.append("-");
-
-                }  else {
-                    morse.append(".");
-                }
-
-               node = node.getParent();
+        while (node.getParent() != null) {
+            parent = node.getParent();
+            rightParent = parent.getRight();
+            if (rightParent == node) {
+                morse.append("-");
+            } else {
+                morse.append(".");
             }
+            node = node.getParent();
+        }
 
         String fraseInvertida = morse.reverse().toString();
         return fraseInvertida;
-        }
-
-
-        // Este método deve permanecer como está.
-        public String charToMorse(char c) {
-            return charToMorse(map.get(c));
-        }
-
-
-        // Você deve mudar o recheio deste método,
-        // de acordo com os requisitos do projeto.
-        public LinkedList<String> getCodes() {
-            return new LinkedList<>();
-        }
     }
+
+    // Este método deve permanecer como está.
+    public String charToMorse(char c) {
+        return charToMorse(map.get(c));
+    }
+
+
+    // Você deve mudar o recheio deste método,
+    // de acordo com os requisitos do projeto.
+    public LinkedList<String> getCodes() {
+        Queue<Node> queue = new LinkedList<>();
+        LinkedList<String> lista = new LinkedList<>();
+
+        root.setDistance(0);
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            Node node = queue.element();
+
+            Node left = node.getLeft();
+            Node right = node.getRight();
+
+
+            int distance = node.getDistance();
+
+            if (left != null) {
+                left.setDistance(distance + 1);
+                queue.add(left);
+                if (left.getValue() != ' '){
+                    lista.add(charToMorse(left));
+                }
+            }
+            if (right != null) {
+                right.setDistance(distance + 1);
+                queue.add(right);
+                if (right.getValue() != ' '){
+                    lista.add(charToMorse(right));
+                }
+            }
+            queue.remove();
+//                System.out.println(distance + " " + node.getValue());
+        }
+        return lista;
+    }
+}
