@@ -9,12 +9,14 @@ public class Node {
     private Node parent;
     private Node left;
     private Node right;
+    private int distance;
 
     public Node(char value) {
         this.value = value;
         this.parent = null;
         this.left = null;
         this.right = null;
+        this.distance = 0;
     }
 
     public char getValue() {
@@ -43,5 +45,13 @@ public class Node {
 
     public void setRight(Node right) {
         this.right = right;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public void setDistance(int distance) {
+        this.distance = distance;
     }
 }

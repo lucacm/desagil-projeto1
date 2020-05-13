@@ -7,4 +7,48 @@
         <item> Estou com dor!</item>
         <item> Preciso ir ao banheiro!</item>
     </string-array>
+
+    <string-array name="letras">
+        <item> E </item>
+        <item> T </item>
+        <item> I </item>
+        <item> A </item>
+        <item> N </item>
+        <item> M </item>
+        <item> S </item>
+        <item> U </item>
+        <item> R </item>
+        <item> W </item>
+        <item> D </item>
+        <item> K </item>
+        <item> G </item>
+        <item> O </item>
+        <item> H </item>
+        <item> V </item>
+        <item> F </item>
+        <item> V </item>
+        <item> L </item>
+        <item> P </item>
+        <item> J </item>
+        <item> B </item>
+        <item> X </item>
+        <item> C </item>
+        <item> Y </item>
+        <item> Z </item>
+        <item> Q </item>
+        <item> 5 </item>
+        <item> 4 </item>
+        <item> 3 </item>
+        <item> 2 </item>
+        <item> + </item>
+        <item> 1 </item>
+        <item> 6 </item>
+        <item> = </item>
+        <item> / </item>
+        <item> 7 </item>
+        <item> 8 </item>
+        <item> 9 </item>
+        <item> 0 </item>
+    </string-array>
+
 </resources>
