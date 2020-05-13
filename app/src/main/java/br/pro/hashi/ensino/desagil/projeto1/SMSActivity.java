@@ -16,6 +16,12 @@ import android.widget.Toast;
 
 public class SMSActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
+
+    private String morse;
+    private Translator translator;
+    private String decoded;
+
+
     // Método de conveniência para mostrar uma bolha de texto.
     private void showToast(String text) {
 
@@ -32,9 +38,63 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sms);
 
+        Translator translator = new Translator();
+
         TextView textMessage = findViewById(R.id.text_message);
-        EditText textPhone = findViewById(R.id.text_phone);
+        TextView textPhone = findViewById(R.id.text_phone);
         Button buttonSend = findViewById(R.id.button_send);
+        Button buttonTel = findViewById(R.id.push_button);
+        Button buttonEnter = findViewById(R.id.translate_button);
+
+        buttonEnter.setOnClickListener((view) -> {
+            if (morse != null) {
+
+                String Mchar = String.valueOf(translator.morseToChar(morse)); // Convert char to str
+                if (decoded == null) {
+                    decoded = Mchar;
+                } else {
+                    decoded += Mchar;
+                }
+            }
+                textPhone.setText(decoded);
+                morse = null;
+                textMessage.setText(morse);
+            });
+
+
+        buttonEnter.setOnLongClickListener((view) -> {
+            char lastChar = morse.charAt(morse.length() - 1);
+            // está com bug
+            if (morse != null) {
+
+                morse = morse.substring(0, morse.length() - 1);
+            }
+
+
+            textMessage.setText(morse);
+            return true;
+        });
+        buttonTel.setOnClickListener((view) -> {
+            if (morse == null) {
+                morse = ".";
+            } else {
+                morse = morse + ".";
+            }
+            textMessage.setText(morse);
+
+
+        });
+        buttonTel.setOnLongClickListener((view) -> {
+            if (morse == null) {
+                morse = "-";
+            } else {
+                morse = morse + "-";
+            }
+            textMessage.setText(morse);
+            return true;
+
+
+        });
 
 //        TextView text = findViewById(R.id.text);
 
@@ -50,7 +110,7 @@ public class SMSActivity extends AppCompatActivity implements AdapterView.OnItem
 
         buttonSend.setOnClickListener((view) -> {
             String message = dropdownSpinner.getSelectedItem().toString();
-            textMessage.setText(message);
+
 
 //            if (textMessage.isEmpty()) {
 //                showToast("Mensagem inválida!");

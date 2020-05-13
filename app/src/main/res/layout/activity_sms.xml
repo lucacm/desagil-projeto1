@@ -33,8 +33,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:gravity="top"
-        android:hint="Mensagem"
-        android:minLines="5" />
+        android:hint="Telefone em morse"
+        android:minLines="5"
+        android:textSize="30sp"/>
 
     <!--    <TextView-->
 <!--        android:id="@+id/text"-->
@@ -44,14 +45,15 @@
 <!--        android:text=""-->
 <!--        android:textSize="28sp" />-->
 
-    <EditText
+    <TextView
         android:id="@+id/text_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/dropdown"
         android:layout_marginBottom="124dp"
-        android:hint="Telefone"
-        android:inputType="phone" />
+        android:hint="Telefone Traduzido"
+        android:inputType="phone"
+        android:textSize="30sp"/>
 
     <Spinner
         android:id="@+id/dropdown"
@@ -65,5 +67,33 @@
         android:layout_height="99dp"
         android:text="Enviar"
         android:layout_alignParentBottom="true"/>
+
+    <Button
+        android:id="@+id/push_button"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_above="@+id/button_send"
+        android:layout_alignParentLeft="true"
+
+        android:layout_marginLeft="19dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/round_button"
+        android:padding="15dp"
+        android:text="telefone" />
+
+    <Button
+        android:id="@+id/translate_button"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_above="@+id/button_send"
+        android:layout_alignParentLeft="true"
+
+        android:layout_marginLeft="256dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/round_button"
+        android:padding="15dp"
+        android:text="Enter/Del" />
 
 </RelativeLayout>

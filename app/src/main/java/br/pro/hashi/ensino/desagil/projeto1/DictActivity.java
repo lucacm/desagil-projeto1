@@ -25,19 +25,14 @@ public class DictActivity extends AppCompatActivity {
         translator = new Translator();
         LinkedList<String> myStringArray = translator.getCodes();
 
-        for (int i=0; i < myStringArray.size(); i++){
-            myStringArray[i] + ' = ' + R.array.letras(i)
-        }
+
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_2, R.array.letras, myStringArray){
+                android.R.layout.simple_list_item_1, myStringArray){
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
-                View view = super.getView(position, convertView, parent);
-                TextView text1 = (TextView) view.findViewById(android.R.id.text1);
-                TextView text2 = (TextView) view.findViewById(android.R.id.text2);
+                View view = (TextView) super.getView(position, convertView, parent);
 
-                text2.setText(String.valueOf(R.array.letras));
                 return view;
             }
         };

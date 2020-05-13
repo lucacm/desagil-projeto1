@@ -37,24 +37,24 @@
         android:textSize="30sp" />
 
 
+    <!--    <EditText-->
+<!--        android:id="@+id/text_phone"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/text_translate"-->
+<!--        android:layout_marginTop="6dp"-->
+<!--        android:hint="Telefone"-->
+<!--        android:inputType="phone" />-->
+
     <TextView
         android:id="@+id/text_translate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_message"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="68dp"
         android:hint="Tradução"
         android:minLines="2"
         android:textSize="30sp" />
-
-    <EditText
-        android:id="@+id/text_phone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/text_translate"
-        android:layout_marginTop="6dp"
-        android:hint="Telefone"
-        android:inputType="phone" />
 
     <Button
         android:id="@+id/push_button" style="@style/Widget.AppCompat.Button.Borderless"
@@ -73,7 +73,7 @@
         android:layout_height ="130dp"
         android:background="@drawable/round_button"
         android:padding="15dp"
-        android:text="del/space"
+        android:text="Apagar"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="30dp"/>
@@ -82,16 +82,17 @@
         android:id="@+id/button_send"
         android:layout_width="match_parent"
         android:layout_height="99dp"
-        android:text="Enviar"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="99dp"
+        android:text="Espaco" />
 
     <Button
         android:id="@+id/button_translate"
         android:layout_width="match_parent"
         android:layout_height="99dp"
-        android:layout_above="@id/button_send"
         android:layout_marginBottom="0dp"
-        android:text="Traduzir" />
+        android:text="Traduzir"
+        android:layout_alignParentBottom="true"/>
 
 
 </RelativeLayout>
