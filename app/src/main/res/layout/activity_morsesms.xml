@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  GridLayout é um layout bem conveniente para
+  organizar as telas por grade. Neste exemplo,
+  temos uma com duas linhas e duas colunas.
+-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SMSActivity">
+
+    <!--
+      Repare que estamos forçando este campo de texto
+      a ocupar duas colunas em vez de apenas uma. Além
+      disso, usamos columnWeight para dizer que ela
+      deve tentar ocupar o espaço horizontal que puder.
+    -->
+
+    <!--
+      Repare que podemos usar o atributo inputType para
+      dizer especificamente que este campo é número de
+      telefone. Isso é ótimo para usabilidade, pois faz
+      com que o teclado fique restrito apenas a números.
+    -->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/text"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_centerHorizontal="true"-->
+    <!--        android:text=""-->
+    <!--        android:textSize="28sp" />-->
+
+
+    <TextView
+        android:id="@+id/text_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="87dp"
+        android:gravity="top"
+        android:hint="Telefone em morse"
+        android:minLines="5"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/text_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/dropdown"
+        android:layout_marginBottom="124dp"
+        android:hint="Telefone Traduzido"
+        android:inputType="phone"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/button_send"
+        android:layout_width="match_parent"
+        android:layout_height="99dp"
+        android:text="Enviar"
+        android:layout_alignParentBottom="true"/>
+
+    <Button
+        android:id="@+id/push_button"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_above="@+id/button_send"
+        android:layout_alignParentLeft="true"
+
+        android:layout_marginLeft="44dp"
+        android:layout_marginBottom="166dp"
+        android:background="@drawable/round_button"
+        android:padding="15dp"
+        android:text="telefone" />
+
+    <Button
+        android:id="@+id/translate_button"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_above="@+id/button_send"
+        android:layout_alignParentLeft="true"
+
+        android:layout_marginLeft="247dp"
+        android:layout_marginBottom="166dp"
+        android:background="@drawable/round_button"
+        android:padding="15dp"
+        android:text="Enter/Del" />
+
+</RelativeLayout>

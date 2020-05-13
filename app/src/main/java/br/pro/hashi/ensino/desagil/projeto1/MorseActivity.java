@@ -2,6 +2,7 @@ package br.pro.hashi.ensino.desagil.projeto1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.SmsManager;
@@ -35,6 +36,7 @@ public class MorseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_morse);
         Translator translator = new Translator();
 
+
         TextView textMessage = findViewById(R.id.text_message);
 
         TextView textTranslate = findViewById(R.id.text_translate);
@@ -43,8 +45,24 @@ public class MorseActivity extends AppCompatActivity {
         Button buttonSend = findViewById(R.id.button_send);
         Button morseButton = findViewById(R.id.push_button);
         Button delspaceButton = findViewById(R.id.delspace_button);
+        Button buttonSMS = findViewById(R.id.button_sms);
 
         Button translateButton = findViewById(R.id.button_translate);
+        Bundle bundle = new Bundle();
+
+        buttonSMS.setOnClickListener((view) ->{
+
+            // Constrói uma Intent que corresponde ao pedido de "iniciar Activity".
+            Intent intent = new Intent(this, morseSMSactivity.class);
+            intent.putExtras(bundle);
+
+            // Inicia a Activity especificada na Intent.
+            startActivity(intent);
+
+        });
+
+
+
 
         translateButton.setOnClickListener((view) -> {
 
@@ -59,6 +77,7 @@ public class MorseActivity extends AppCompatActivity {
 
             }
             textTranslate.setText(decoded);
+            bundle.putString("mensagem",decoded);
             morse = null;
             textMessage.setText(morse);
 

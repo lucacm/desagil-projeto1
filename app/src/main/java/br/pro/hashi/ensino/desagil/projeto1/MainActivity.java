@@ -52,6 +52,15 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void startDict2Activity() {
+
+        // Constrói uma Intent que corresponde ao pedido de "iniciar Activity".
+        Intent intent = new Intent(this, Dict2Activity.class);
+
+        // Inicia a Activity especificada na Intent.
+        startActivity(intent);
+    }
+
 
 
 
@@ -62,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         Button buttonExample = findViewById(R.id.button_example);
         Button buttonMorse = findViewById(R.id.button_morse);
         Button buttonDict = findViewById(R.id.button_dict);
+        Button buttonDict2 = findViewById(R.id.button_dict2);
 
 
         buttonExample.setOnClickListener((view) -> {
@@ -112,7 +122,9 @@ public class MainActivity extends AppCompatActivity {
             startDictActivity();
         });
 
-
+        buttonDict2.setOnClickListener((view) -> {
+            startDict2Activity();
+        });
 
 
     }

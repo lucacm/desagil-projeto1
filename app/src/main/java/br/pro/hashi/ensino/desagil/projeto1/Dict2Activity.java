@@ -1,35 +1,31 @@
 package br.pro.hashi.ensino.desagil.projeto1;
 
-;
-import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.Collections;
 import java.util.LinkedList;
 
-public class DictActivity extends AppCompatActivity {
+public class Dict2Activity extends AppCompatActivity {
     private Translator translator;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dict);
-
         translator = new Translator();
         LinkedList<String> myStringArray = translator.getCodes();
         LinkedList<String> Dict = new LinkedList<>();
 
         for (String s : myStringArray) {
-            Dict.add(s + "  =  " + Character.toUpperCase(translator.morseToChar(s)));
+            Dict.add(Character.toUpperCase(translator.morseToChar(s))  + "  =  " + s);
 
         }
+
+        Collections.sort(Dict);
 
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,

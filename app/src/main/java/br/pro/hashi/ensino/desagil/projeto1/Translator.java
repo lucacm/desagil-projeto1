@@ -407,14 +407,14 @@ public class Translator {
                 left.setDistance(distance + 1);
                 queue.add(left);
                 if (left.getValue() != ' '){
-                    lista.add(Character.toUpperCase(left.getValue()) + "  =  " + charToMorse(left));
+                    lista.add(charToMorse(left));
                 }
             }
             if (right != null) {
                 right.setDistance(distance + 1);
                 queue.add(right);
                 if (right.getValue() != ' '){
-                    lista.add(Character.toUpperCase(right.getValue()) + "  =  " + charToMorse(right));
+                    lista.add(charToMorse(right));
                 }
             }
             queue.remove();
