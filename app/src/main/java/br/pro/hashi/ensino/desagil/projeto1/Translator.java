@@ -16,6 +16,8 @@ public class Translator {
     // de acordo com os requisitos do projeto.
     public Translator() {
 
+        map = new HashMap<>();
+
         root = new Node(' ');
         map.put(' ', root);
 
@@ -366,15 +368,14 @@ public class Translator {
             while (node.getParent() != null) {
                 parent = node.getParent();
                 rightParent = parent.getRight();
-
                 if (rightParent == node) {
                     morse.append("-");
 
-                } else {
+                }  else {
                     morse.append(".");
                 }
 
-                node.setParent(parent);
+               node = node.getParent();
             }
 
         String fraseInvertida = morse.reverse().toString();

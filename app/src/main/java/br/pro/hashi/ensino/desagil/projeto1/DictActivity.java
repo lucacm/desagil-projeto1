@@ -17,11 +17,11 @@ public class DictActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dict);
 
         Translator translator = new Translator();
-        TextView textMessage32 = findViewById(R.id.text_dict);
+        TextView textMessage = findViewById(R.id.text_dict);
         Button teste = findViewById(R.id.button_dict);
     teste.setOnClickListener((view) -> {
-        steste = String.valueOf(translator.charToMorse('a'));
-        textMessage32.setText(steste);
+        steste = translator.charToMorse('a');
+        textMessage.setText(steste);
     });
     }
 
