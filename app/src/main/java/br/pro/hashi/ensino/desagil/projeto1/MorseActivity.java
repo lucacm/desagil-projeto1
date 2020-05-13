@@ -17,6 +17,7 @@ public class MorseActivity extends AppCompatActivity {
     private String decoded;
 
 
+
     // Método de conveniência para mostrar uma bolha de texto.
     private void showToast(String text) {
 
@@ -38,7 +39,7 @@ public class MorseActivity extends AppCompatActivity {
 
         TextView textTranslate = findViewById(R.id.text_translate);
 
-        EditText textPhone = findViewById(R.id.text_phone);
+//        EditText textPhone = findViewById(R.id.text_phone);
         Button buttonSend = findViewById(R.id.button_send);
         Button morseButton = findViewById(R.id.push_button);
         Button delspaceButton = findViewById(R.id.delspace_button);
@@ -84,50 +85,41 @@ public class MorseActivity extends AppCompatActivity {
         });
 
         // Ação do botão morse para apagar os caracteres
-        delspaceButton.setOnClickListener((view) -> {
-            char lastChar = morse.charAt(morse.length() - 1);
-            // está com bug
-            if (morse != null) {
-                morse = morse.substring(0, morse.length() - 1);
-            }
-            textMessage.setText(morse);
-        });
+
+            delspaceButton.setOnClickListener((view) -> {
+                char lastChar = morse.charAt(morse.length() - 1);
+                // está com bug
+                if (morse != null) {
+
+                    morse = morse.substring(0, morse.length() - 1);
+                }
+
+
+                textMessage.setText(morse);
+            });
 
         // Ação do botão morse para dar espaço
         delspaceButton.setOnLongClickListener((view) -> {
-            if (morse == null) {
-                morse = "/";
-            } else {
-                morse = morse + "/";
+
+            char lastChar = decoded.charAt(decoded.length() - 1);
+            // está com bug
+            if (decoded != null) {
+
+                decoded = decoded.substring(0, decoded.length() - 1);
             }
-            textMessage.setText(morse);
+
+
+            textTranslate.setText(decoded);
             return true;
         });
 
 
         buttonSend.setOnClickListener((view) -> {
-            String phone = textPhone.getText().toString();
 
-            // mudar funcao de enviar SMS para funcao de mostrar a traducao no app
-            // melhorar logica abaixo
-         
+            decoded = decoded + " ";
 
-            // Esta verificação do número de telefone é bem
-            // rígida, pois exige até mesmo o código do país.
-            if (!PhoneNumberUtils.isGlobalPhoneNumber(phone)) {
-                showToast("Número inválido!");
-                return;
-            }
+            textTranslate.setText(decoded);
 
-            // Enviar uma mensagem de SMS. Por simplicidade,
-            // não estou verificando se foi mesmo enviada,
-            // mas é possível fazer uma versão que verifica.
-            SmsManager manager = SmsManager.getDefault();
-            manager.sendTextMessage(phone, null, decoded, null, null); // precisa arrumar o message
-
-            // Limpar o campo para nenhum engraçadinho
-            // ficar apertando o botão várias vezes.
-            textPhone.setText("");
         });
 
 
