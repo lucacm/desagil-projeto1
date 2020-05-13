@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DictActivity"></activity>
+        <activity android:name=".morseSMSactivity"></activity>
+        <activity android:name=".Dict2Activity" />
+        <activity android:name=".DictActivity" />
         <activity android:name=".MorseActivity" />
         <activity android:name=".SMSActivity" />
         <activity android:name=".MainActivity">
